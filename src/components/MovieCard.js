@@ -34,16 +34,18 @@ export default function MovieCard({ movie }) {
       });
   }
   
-
   return (
-    <div className="bg-gray-800 rounded-lg p-4 text-white">
+    <div className="flex-none w-64 transition-transform duration-300 hover:scale-105">
       <Link to={`/movie/${movie.id}`} className="block">
+
+        <div className="relative group cursor-pointer">
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          className="rounded-lg"
-        />
-        <h2 className="mt-2 text-lg font-bold">{movie.title}</h2>
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            className="rounded-lg"
+          />
+        </div>
+        <h3 className="mt-2 text-sm font-medium truncate">{movie.title}</h3>
       </Link>
       <button
         onClick={addToFavorites(movie.id)}
@@ -51,6 +53,8 @@ export default function MovieCard({ movie }) {
       >
         Ajouter aux favoris
       </button>
+
     </div>
+
   );
 }
